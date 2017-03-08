@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SlotMachine.SlotMachine">
+	<ContentPage.Content>
+	<StackLayout BackgroundColor = "Black">
+			<Label Text="Slot Machine" Font="50" TextColor="Red" HorizontalOptions="Center" TranslationY="10"/>
+			<Label x:Name="coinsLabel" Text="Coins: 50" Font="25" TextColor="Yellow" HorizontalOptions="Center" TranslationY="25"/>
+			<Label x:Name="coinsWonLabel" Text="Coins Won: 0" Font="25" TextColor="Yellow" HorizontalOptions="Center" TranslationY="50"/>
+			<Image x:Name="slotImage1" Source="numberOne.jpg" WidthRequest="100" HorizontalOptions="Center" TranslationY="86" TranslationX="-110"/>
+			<Image x:Name="slotImage2" Source="numberTwo.jpg" WidthRequest="100" HorizontalOptions="Center" TranslationY="-20" TranslationX="0"/>
+			<Image x:Name="slotImage3" Source="numberThree.jpg" WidthRequest="100" HorizontalOptions="Center" TranslationY="-126" TranslationX="110"/>
+			<Button x:Name="multiplier1" Text=" 1x " TextColor="Blue" Font="30" HorizontalOptions="Center" TranslationX="-100" TranslationY="-71" Clicked="multiplier1Button" BorderColor="Red" BorderWidth="2"/>
+			<Button x:Name="multiplier2" Text=" 2x " TextColor="Blue" Font="30" HorizontalOptions="Center" TranslationX="0" TranslationY="-125" Clicked="multiplier2Button" BorderColor="Red"/>
+			<Button x:Name="multiplier3" Text=" 3x " TextColor="Blue" Font="30" HorizontalOptions="Center" TranslationX="100" TranslationY="-178" Clicked="multiplier3Button" BorderColor="Red"/>
+			<Button Text="Spin" TextColor="Red" Font="60" HorizontalOptions="Center" TranslationY="-150" Clicked="SlotMachineSpin"/>
+		</StackLayout>	
+	</ContentPage.Content>
+</ContentPage>
