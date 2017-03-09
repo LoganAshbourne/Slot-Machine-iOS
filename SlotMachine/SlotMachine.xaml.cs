@@ -9,7 +9,7 @@ namespace SlotMachine
 	public partial class SlotMachine : ContentPage
 	{
 		// Global variables
-		int coins = 50;
+		int coins = 25;
 		int coinsWon = 0;
 		int multiplier = 1;
 
@@ -19,7 +19,7 @@ namespace SlotMachine
 		}
 
 		// Spin button
-		async void SlotMachineSpin(object s, EventArgs e)
+	    async void SlotMachineSpin(object s, EventArgs e)
 		{
 			if (coins > 0)
 			{
@@ -92,13 +92,13 @@ namespace SlotMachine
 					coinsWon += 10 * multiplier;
 				}
 				// If they all match (2)
-				if (rnd1 == 2 && rnd2 == 2 && rnd3 == 2)
+				else if (rnd1 == 2 && rnd2 == 2 && rnd3 == 2)
 				{
 					coins += 20 * multiplier;
 					coinsWon += 20 * multiplier;
 				}
 				// If they all match (3)
-				if (rnd1 == 3 && rnd2 == 3 && rnd3 == 3)
+				else if (rnd1 == 3 && rnd2 == 3 && rnd3 == 3)
 				{
 					coins += 30 * multiplier;
 					coinsWon += 30 * multiplier;
@@ -118,9 +118,7 @@ namespace SlotMachine
 			await Task.Delay(5);
 
 			multiplier = 1;
-			multiplier1.BorderWidth = 2;
-			multiplier2.BorderWidth = 0;
-			multiplier3.BorderWidth = 0;
+			borderWidth();
 		}
 
 		async void multiplier2Button(object s, EventArgs e)
@@ -128,9 +126,7 @@ namespace SlotMachine
 			await Task.Delay(5);
 
 			multiplier = 2;
-			multiplier1.BorderWidth = 0;
-			multiplier2.BorderWidth = 2;
-			multiplier3.BorderWidth = 0;
+			borderWidth();
 		}
 
 		async void multiplier3Button(object s, EventArgs e)
@@ -138,9 +134,31 @@ namespace SlotMachine
 			await Task.Delay(5);
 
 			multiplier = 3;
-			multiplier1.BorderWidth = 0;
-			multiplier2.BorderWidth = 0;
-			multiplier3.BorderWidth = 2;
+			borderWidth();
+		}
+
+		public void borderWidth()
+		{
+			switch (multiplier)
+			{
+				case 1:
+					multiplier1.BorderWidth = 2;
+					multiplier2.BorderWidth = 0;
+					multiplier3.BorderWidth = 0;
+					break;
+
+				case 2:
+					multiplier1.BorderWidth = 0;
+					multiplier2.BorderWidth = 2;
+					multiplier3.BorderWidth = 0;
+					break;
+
+				case 3:
+					multiplier1.BorderWidth = 0;
+					multiplier2.BorderWidth = 0;
+					multiplier3.BorderWidth = 2;
+					break;
+			}
 		}
 	}
 }
